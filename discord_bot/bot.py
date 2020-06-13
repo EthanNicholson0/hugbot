@@ -15,8 +15,8 @@ async def on_ready():
     print('Ready!')
 
 @bot.command(description = "Hugs the target, or yourself if left blank")
-async def hug(ctx, *, message:str):
-    if message == "":
+async def hug(ctx):
+    if ctx.message.mentions == []:
         await ctx.channel.send("You gave yourself a big hug. :)")
     else:
         huggee = ctx.message.mentions[0]
